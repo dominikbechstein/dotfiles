@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#svn st $@ slc/ af/* $(find -maxdepth 1 -type d -not -name '.*' -not -name af -not -name slc) | \
+#    grep -vE '^($|X|Performing status on external item at)' | \
+#    grep -v nbproject
+
+svn st $@ af/* $(find -maxdepth 1 -type d -not -name '.*' -not -name af) # | grep -vE '^($|Performing status)'
+

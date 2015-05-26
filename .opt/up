@@ -1,0 +1,21 @@
+#!/bin/bash
+
+DIR=/var/www/af
+
+svn update `find $DIR/af/*/.svn -maxdepth 0 | cut -f1-7 -d/ & find $DIR/*/.svn -maxdepth 0 | cut -f1-6 -d/` |
+    grep --line-buffered -vE '^($|Fetching external item into|External at revision|Updated external to revision)' |
+    sed -ur '
+       s/^(A)([A|D|U|C|G|E| ][B | ])/\t\t\t\t\x1b[36m\2\x1b[0m\2/;
+       s/^(D)([A|D|U|C|G|E| ][B | ])/\t\t\t\t\x1b[33m\2\x1b[0m\2/;
+       s/^(U)([A|D|U|C|G|E| ][B | ])/\t\t\t\t\x1b[35m\2\x1b[0m\2/;
+       s/^(C)([A|D|U|C|G|E| ][B | ])/\t\t\t\t\x1b[32m\2\x1b[0m\2/;
+       s/^(G)([A|D|U|C|G|E| ][B | ])/\t\t\t\t\x1b[32m\2\x1b[0m\2/;
+       s/^(E)([A|D|U|C|G|E| ][B | ])/\t\t\t\t\x1b[32m\2\x1b[0m\2/;
+       s/^( )([A|D|U|C|G|E| ][B | ])/\t\t\t\t\1\2/;
+
+       s/^(At revision .*)/\t\t\t\t\1/;
+       s/^(Updated to revision .*)/\t\t\t\t\1/;
+   '
+
+
+

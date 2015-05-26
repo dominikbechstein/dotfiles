@@ -1,0 +1,13 @@
+#!/bin/bash
+
+LEFT="$6"
+RIGHT="$7"
+
+#if [[ $OPT == "vim" ]]; then
+#    diff "$LEFT" "$RIGHT"
+#else
+#    colordiff "$LEFT" "$RIGHT"
+#fi
+
+diff --ignore-all-space "$LEFT" "$RIGHT" | colordiff
+

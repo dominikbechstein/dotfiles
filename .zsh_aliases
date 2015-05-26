@@ -1,0 +1,87 @@
+# cd
+alias ..="cd .."
+
+# ls
+alias ls='ls -FX --color --group-directories-first --time-style=long-iso'
+alias ll='ls -lh'
+alias la='ll -A'
+
+# mkdir
+alias mkdir='mkdir -p'
+
+# cp
+alias cp='cp -a'
+
+alias pgrep='pgrep -l'
+alias less='less -r'
+alias more='less -r'
+
+# grep
+alias grep="grep --color=always"
+alias    g="grep -Iirn  --exclude-dir=*{.cache,svn,slc,.idea}* --exclude=*{buildpath,jquery-ui,jquery.ui,tags.*}*"
+alias   gv="grep -Iolir --exclude-dir=*{.cache,svn,slc,.idea}* --exclude=*{buildpath,jquery-ui,jquery.ui,tags.*}*"
+hl () { grep -E "$1|$"; }
+
+# tree
+alias tree='tree -CrF --dirsfirst'
+
+# diff
+alias diff='colordiff --exclude=".svn"'
+
+filediff () {
+    colordiff -yW"`tput cols`" $@
+}
+
+# wget
+alias wget-mirror='wget -m -k -E -nH'
+alias ss='ss -r | tail -n +2 | column -t | sort -k4,5 | column -ts":"'
+
+# df
+alias df='df --human-readable --portability'
+
+alias t='tree -L 2'
+
+alias mount='mount | column -t'
+
+# jobs
+alias j='jobs'
+alias f='fg'
+
+#? () { echo "$*" | bc -l; }
+msg () { echo "$2" | write "$1"; }
+
+smoke () {
+    msg "$1" '
+                       ____...
+              .-"--"""".__    `.
+             |            `    |
+   (         `._....------.._.:
+    )         .()""        ``().
+   `          () .==´  `===  `-.
+    . )       (   <o>  <o>    g)
+     )         )     /        J
+    (          |.   /      . (
+    $$         (.  (_`.   , )|`
+    ||         |\`-....--´/  ´ \
+   /||.         \\ | | | /  /   \.
+  //||(\         \`-===-´  ´     \o.
+ .//7´ |)         `. --   / (     OObaaaad888b.
+ (<<. / |     .a888b`.__.´d\     OO888888888888a.
+  \  Y´ |    .8888888aaaa88POOOOOO888888888888888.
+   \  \ |   .888888888888888888888888888888888888b
+    |   |  .d88888P88888888888888888888888b8888888.
+    b.--d .d88888P8888888888888888a:f888888|888888b
+    88888b 888888|8888888888888888888888888\8888888
+'
+}
+
+billard () {
+    msg "$1" '
+    ,-----.   ,
+   / o  o___O/_\_
+  /         \`~||
+ /___________\ ||
+   |       |
+'
+}
+

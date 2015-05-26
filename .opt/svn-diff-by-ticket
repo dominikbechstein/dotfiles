@@ -1,0 +1,14 @@
+#!/bin/bash
+
+ticket="$1"
+path="$2"
+limit="$3"
+
+if [[ -z "$limit" ]]; then
+    limit="200"
+fi
+
+for revision in $(svnlog -l "$limit" $path | grep "$ticket" | cut -c-5); do
+    svn di $4 -c $revision $path
+done
+

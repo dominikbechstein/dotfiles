@@ -1,0 +1,79 @@
+shell -${SHELL}
+
+#hardstatus alwayslastline
+#hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f %t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c%{g}]'
+
+#caption    always         "%{+b rk}%H%{gk} |%c %{yk}%d.%m.%Y | %72=Load: %l %{wk}"
+#hardstatus alwayslastline "%?%{yk}%-Lw%?%{wb}%n*%f %t%?(%u)%?%?%{yk}%+Lw%?"
+
+caption always "%3n %t%? @%u%?%? [%h]%?"
+hardstatus alwayslastline
+hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %Y-%m-%d %c:%s "
+
+#hardstatus on
+#hardstatus alwayslastline
+#hardstatus string "%{.bW}%-w %{.rW}%n %t%{-}%+w %=%{..w}%u %{..G} %H %{..Y} %Y-%m-%d %c:%s "
+
+startup_message off
+autodetach on
+
+defscrollback 99000
+
+multiuser on
+
+#terminfo and termcap for nice 256 color terminal
+# allow bold colors - necessary for some reason
+attrcolor b ".I"
+
+# tell screen how to set colors. AB = background, AF=foreground
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+shelltitle "$ |bash"
+
+# erase background with current bg color
+defbce "on"
+term "screen-256color"
+term "screen-256color-bce"
+
+vbell off
+shell bash
+defutf8 on
+
+# password doesn't work .. ??
+#idle 10 lockscreen
+msgminwait 3
+msgwait 30
+
+#deflog on
+#logfile /var/tmp/dwi/serial.%n
+
+#windowlist string "(%3n) %{..g}[%{..Y}%t%{..g}]%{..g}%=%f"
+#windowlist title "Num   Name"
+#bind E  caption splitonly "%{= Bw} (%2n) %{..g}[%{..Y}%t%{..g}] %{> h}"
+#bind e  caption always    "%{= Bw} (%2n) %{..g}[%{..Y}%t%{..g}] %{> h}"
+
+# If a window goes unresponsive, don't block the whole session waiting for it.
+nonblock on
+
+# Use the function keys to switch among windows.
+#bindkey -k k1 select 1
+#bindkey -k k2 select 2
+#bindkey -k k3 select 3
+#bindkey -k k4 select 4
+#bindkey -k k5 select 5
+#bindkey -k k6 select 6
+#bindkey -k k7 select 7
+#bindkey -k k8 select 8
+#bindkey -k k9 select 9
+
+bind = resize =
+bind + resize +1
+bind - resize -1
+bind _ resize max
+
+
+# screen -t NameOfScreen ScreenNumber ShellCommand
+#screen -t htop        0   htop
+
+screen 0
+select 0
+

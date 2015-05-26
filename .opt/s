@@ -1,0 +1,4 @@
+#!/bin/bash
+
+find "$2" -iname "*$1*" -and -not -path "*svn*" -and -not -path "*.cache*" | grep -i --color "$1"
+

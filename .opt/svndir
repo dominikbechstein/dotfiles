@@ -1,0 +1,16 @@
+#!/bin/bash
+
+printf "%-30s%-40s%-100s\n" "directory" "svn path" "url"
+echo "-------------------------------------------------------------------------------------------------------------------------------------------------------"
+
+for dir in $( (find af/*/.svn -maxdepth 0 | cut -f1-2 -d/ && find */.svn -maxdepth 0 | cut -f1 -d/) | sort); do
+    info=$(svn info "$dir" | grep ^URL | cut -c6-)
+    path=$(echo "$info" | cut -f9- -d/)
+
+    printf "%-30s%-40s%-100s" "$dir" "$path" "$info"
+
+    # svn st "$dir" | grep -vE '^(-|$)' | cut -c-8 | sort | uniq -c | tr -d "\n"
+
+    echo
+done
+

@@ -1,0 +1,66 @@
+#!/bin/bash
+
+#params=()
+#
+#for param in $*; do
+#    echo $param
+#    if [-e $param]; then
+#        
+#    fi
+#done
+#exit
+
+#svn log -r HEAD:1 $@ |
+svn log $@ |
+
+    # remove lines
+    sed 's/[0-9] lines*//g' |
+
+    # remove \n
+    tr -d '\n' |
+
+    # replace -- with \n
+    sed -r 's/-{72}/\n/g' |
+
+    # remove empty lines
+    grep -v ^$ |
+
+    # remove r(xxx)
+    sed 's/^r//g' | 
+
+    cut -d ' ' -f 1-6,12- |
+
+    # remove spedc
+#    grep -vE '\[:digits:\]+ | (jri|sar|ihe|mna|mma) ' |
+
+    sort -n |
+
+    # highlight
+    sed -r '
+        s/\[(initial)\]/[\x1b[36m\1\x1b[0m]  /;
+        s/\[(init)\]/[\x1b[36m\1\x1b[0m]     /;
+        s/\[(change)\]/[\x1b[36m\1\x1b[0m]   /;
+        s/\[(add)\]/[\x1b[36m\1\x1b[0m]      /;
+        s/\[(delete)\]/[\x1b[36m\1\x1b[0m]   /;
+        s/\[(revert)\]/[\x1b[36m\1\x1b[0m]   /;
+        s/\[(release)\]/[\x1b[36m\1\x1b[0m]  /;
+        s/\[(remove)\]/[\x1b[36m\1\x1b[0m]   /;
+        s/\[(fix)\]/[\x1b[31m\1\x1b[0m]      /;
+        s/\[(tag)\]/[\x1b[31m\1\x1b[0m]      /;
+        s/\[(branch)\]/[\x1b[31m\1\x1b[0m]   /;
+        s/\[(merge)\]/[\x1b[31m\1\x1b[0m]    /;
+
+        s/(:)(awaiting_test)/\1\x1b[1;34m\2\x1b[0m/;
+        s/(:)(consultation)/\1\x1b[1;34m\2\x1b[0m /;
+        s/(:)(done)/\1\x1b[1;34m\2\x1b[0m         /;
+        s/(:)(closed)/\1\x1b[1;34m\2\x1b[0m       /;
+        s/(:)(progress)/\1\x1b[1;34m\2\x1b[0m     /;
+        s/(:)(spedc)/\1\x1b[1;34m\2\x1b[0m        /;
+
+        s/#([0-9]+)/\x1b[1;34m\1\x1b[0m/;
+    ' |
+
+    # layout
+    column -t -s '|'
+
+
