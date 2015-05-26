@@ -3,6 +3,7 @@
 .composer
 .config
 .environment.d/alcedis
+.gitconfig
 .lesshst
 .my.cnf
 .mysql_history
@@ -10,7 +11,7 @@
 .php_history
 .ssh
 .subversion/auth
-.subversion/README
+.subversion/README.txt
 .subversion/servers
 .vim
 .viminfo
