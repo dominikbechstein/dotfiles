@@ -1,6 +1,6 @@
 [user]
-	email = info@edge-project.org
-    name = Dominik Winter
+    email = info@edge-project.org
+    name  = Dominik Winter
 
 [alias]
     tags        = tag -l
