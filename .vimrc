@@ -1,5 +1,5 @@
 syntax on                     " syntax highlighting
-color molokai
+" color molokai
 filetype plugin indent on     " filetype specific indentation
 
 set encoding=utf-8
