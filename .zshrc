@@ -1,20 +1,25 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/dwi/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="taybalt"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -44,8 +49,8 @@ HIST_STAMPS="yyyy-mm-dd"
 # how the end of partial lines are shown.
 PROMPT_EOL_MARK=
 
-HISTSIZE=99999
-SAVEHIST=99999
+HISTSIZE=999999
+SAVEHIST=999999
 
 # keep the trailing slash after choosing a directory from the zsh completion options
 setopt no_auto_remove_slash
@@ -57,8 +62,28 @@ setopt no_auto_remove_slash
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(coffee git colored-man colorize common-aliases tmux zsh-syntax-highlighting svn cp git svn-fast-info themes lol ssh-agent sudo yum jsontools)
-#plugins=(coffee colored-man colorize command-not-found common-aliases compleat copyfile cp dircycle docker emoji-clock encode64 extract git git-hubflow git-extra git-prompt git-remote-branch gitfast github gitignore history history-substring-search iwhois jsontools jump last-working-dir lol node npm phing ssh-agent sudo supervisor svn svn-fast-info systemd terminalapp themes tmux urltools web-search yum zsh-syntax-highlighting svn)
+plugins=(
+    coffee
+    colored-man
+    colorize
+    common-aliases
+    cp
+    git
+    jsontools
+    lol
+    ssh-agent
+    sudo
+    themes
+    tmux
+    yum
+    zsh-syntax-highlighting
+)
+
+# User configuration
+
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -76,4 +101,3 @@ autoload -U compinit    &&  compinit -i
 autoload -U colors      &&  colors
 
 source ~/.zsh_aliases
-
