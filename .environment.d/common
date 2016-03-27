@@ -2,15 +2,10 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 
 export TERM=xterm-256color
 
-export PATH=$PATH:/home/dwi/.opt
+export PATH="$PATH:~/.opt"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
-#export LANG=en_US.UTF-8
-#export LC_ALL=en_US.UTF-8
-#export LANGUAGE=en_US.UTF-8
-
-export LC_ALL=en_US.utf8
-export LANG=en_US.utf8
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 export EDITOR=vi
-
-

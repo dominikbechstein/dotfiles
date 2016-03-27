@@ -81,10 +81,6 @@ plugins=(
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-
 source $ZSH/oh-my-zsh.sh
 
 # run tmux if not yet done
