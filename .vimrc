@@ -33,18 +33,18 @@ if version < 702
     finish
 endif
 
-"NeoBundle Scripts-----------------------------
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
 
-  " Required:
-  set runtimepath+=/home/dwi/.vim/bundle/neobundle.vim/
+if &compatible
+    set nocompatible               " Be iMproved
 endif
 
 " Required:
-call neobundle#begin(expand('/home/dwi/.vim/bundle'))
+set runtimepath^=~/.vim/bundle/neobundle.vim/
+
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -57,7 +57,6 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'tpope/vim-unimpaired.git'
 NeoBundle 'mhinz/vim-signify'
-
 
 " syntax highlight
 NeoBundle 'tomasr/molokai'
@@ -77,7 +76,11 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
-"End NeoBundle Scripts-------------------------
+" End NeoBundle Scripts-------------------------
+
+set background=dark
+let g:solarized_termcolors = 256
+colorscheme solarized
 
 let mapleader = ","
 
@@ -94,14 +97,9 @@ nnoremap <leader>gh SignifyToggleHighlight
 nnoremap <leader>gr SignifyRefresh
 nnoremap <leader>gd SignifyDebug
 
-
-
 au BufWinLeave * mkview
 au BufWinEnter * silent loadview
 
-
 nnoremap <leader>n <Esc>:NERDTreeToggle<CR>
 nnoremap <leader>fa <Esc>:call Beautifier()<CR>
-
-
 
