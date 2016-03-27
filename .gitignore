@@ -10,9 +10,6 @@
 .oh-my-zsh
 .php_history
 .ssh
-.subversion/auth
-.subversion/README.txt
-.subversion/servers
 .vim
 .viminfo
 .zcompdump*
