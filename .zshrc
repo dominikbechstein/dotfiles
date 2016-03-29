@@ -84,9 +84,11 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # run tmux if not yet done
-if [ "$TMUX" = "" ];
-    then tmux -u;
+if [ "$TMUX" = "" ]; then
+    tmux -u2;
 fi
+
+eval $(dircolors -b ~/.dircolors)
 
 # to get key codes .. use esc, ctrl+v or cat
 bindkey  "^[[1~"   beginning-of-line
@@ -95,5 +97,29 @@ bindkey  "^[[4~"   end-of-line
 # Load and run scripts
 autoload -U compinit    &&  compinit -i
 autoload -U colors      &&  colors
+
+# num block
+
+# 0 . Enter
+bindkey -s "^[Op" "0"
+bindkey -s "^[Ol" "."
+bindkey -s "^[OM" "^M"
+# 1 2 3
+bindkey -s "^[Oq" "1"
+bindkey -s "^[Or" "2"
+bindkey -s "^[Os" "3"
+# 4 5 6
+bindkey -s "^[Ot" "4"
+bindkey -s "^[Ou" "5"
+bindkey -s "^[Ov" "6"
+# 7 8 9
+bindkey -s "^[Ow" "7"
+bindkey -s "^[Ox" "8"
+bindkey -s "^[Oy" "9"
+# + -  * /
+bindkey -s "^[Ol" "+"
+bindkey -s "^[Om" "-"
+bindkey -s "^[Oj" "*"
+bindkey -s "^[Oo" "/"
 
 source ~/.zsh_aliases
