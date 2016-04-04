@@ -1,3 +1,5 @@
+*.gz
+*.tar
 .bash_history
 .bash_sessions
 .cache
@@ -9,6 +11,7 @@
 .mysql_history
 .oh-my-zsh
 .php_history
+.subversion
 .ssh
 .vim
 .viminfo
@@ -23,6 +26,7 @@
 .npm
 .oracle_jre_usage
 .Trash
+Applications
 Desktop
 Documents
 Downloads
