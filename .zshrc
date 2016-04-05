@@ -66,15 +66,45 @@ plugins=(
     coffee
     colored-man
     colorize
+    command-not-found
     common-aliases
+    compleat
+    copyfile
     cp
+    dircycle
+    docker
+    emoji-clock
+    encode64
+    extract
     git
+    git-extra
+    git-hubflow
+    git-prompt
+    git-remote-branch
+    gitfast
+    github
+    gitignore
+    history
+    history-substring-search
+    iwhois
     jsontools
+    jump
+    last-working-dir
     lol
+    node
+    npm
+    phing
     ssh-agent
     sudo
+    supervisor
+    svn
+    svn-fast-info
+    systemd
+    terminalapp
     themes
     tmux
+    urltools
+    web-search
     yum
     zsh-syntax-highlighting
 )
@@ -93,12 +123,6 @@ eval $(dircolors -b ~/.dircolors)
 # to get key codes .. use esc, ctrl+v or cat
 bindkey  "^[[1~"   beginning-of-line
 bindkey  "^[[4~"   end-of-line
-
-# Load and run scripts
-autoload -U compinit    &&  compinit -i
-autoload -U colors      &&  colors
-
-# num block
 
 # 0 . Enter
 bindkey -s "^[Op" "0"
@@ -121,5 +145,9 @@ bindkey -s "^[Ol" "+"
 bindkey -s "^[Om" "-"
 bindkey -s "^[Oj" "*"
 bindkey -s "^[Oo" "/"
+
+# Load and run scripts
+autoload -U compinit    &&  compinit -i
+autoload -U colors      &&  colors
 
 source ~/.zsh_aliases

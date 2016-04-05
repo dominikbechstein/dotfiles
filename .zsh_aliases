@@ -20,7 +20,8 @@ alias more='less -r'
 alias grep="grep --color=always"
 alias    g="grep -Iirn  --exclude-dir=*{.cache,svn,slc,.idea}* --exclude=*{buildpath,jquery-ui,jquery.ui,tags.*}*"
 alias   gv="grep -Iolir --exclude-dir=*{.cache,svn,slc,.idea}* --exclude=*{buildpath,jquery-ui,jquery.ui,tags.*}*"
-hl () { grep -E "$1|$"; }
+alias  ack="ack --ignore-dir=.cache --ignore-dir=.idea -i"
+hl () { grep -iE "$1|$"; }
 
 # tree
 alias tree='tree -CrF --dirsfirst'
@@ -39,9 +40,10 @@ alias ss='ss -r | tail -n +2 | column -t | sort -k4,5 | column -ts":"'
 # df
 alias df='df --human-readable --portability'
 
-alias t='tree -L 2'
 
+alias t='tree -L 2'
 alias mount='mount | column -t'
+alias tmux='tmux -u2'
 
 # jobs
 alias j='jobs'

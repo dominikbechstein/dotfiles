@@ -1,6 +1,3 @@
-for file in ~/.environment.d/*; do
-    source $file
-done
-
+source ~/.environment.d/*
 source ~/.zsh_aliases
 

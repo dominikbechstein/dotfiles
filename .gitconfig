@@ -2,6 +2,12 @@
     name  = Dominik Winter
     email = info@edge-project.org
 
+[color]
+    ui = auto
+
+[core]
+    pager =
+
 [alias]
     tags        = tag -l
     branches    = branch -a
