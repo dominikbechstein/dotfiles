@@ -89,7 +89,6 @@ plugins=(
     iwhois
     jsontools
     jump
-    last-working-dir
     lol
     node
     npm

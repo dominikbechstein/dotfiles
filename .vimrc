@@ -1,19 +1,20 @@
-syntax on                     " syntax highlighting
-" color molokai
-filetype plugin indent on     " filetype specific indentation
+syntax on                       " syntax highlighting
+colorscheme monokai
+set nocompatible                " be iMproved, required
+filetype off                    " required
 
 set encoding=utf-8
-set t_Co=256                  " 256 colors
-set ai                        " auto indenting
-set vb                        " use visual bell instead of a beep
+set t_Co=256                    " 256 colors
+set ai                          " auto indenting
+set vb                          " use visual bell instead of a beep
 set nu
-set expandtab                 " spaces instead of tabs
-set tabstop=4                 " tabs are two spaces wide
-set shiftwidth=4              " indent by two spaces
-set ruler                     " show cursor position info
-set hlsearch                  " highlight search terms
-set modifiable                " set modifiable so NERDTree can modify files
-set softtabstop=4             " how far to backspace over tabs
+set expandtab                   " spaces instead of tabs
+set tabstop=4                   " tabs are two spaces wide
+set shiftwidth=4                " indent by two spaces
+set ruler                       " show cursor position info
+set hlsearch                    " highlight search terms
+set modifiable                  " set modifiable so NERDTree can modify files
+set softtabstop=4               " how far to backspace over tabs
 set backspace=indent,eol,start
 
 set ttimeoutlen=50
@@ -37,52 +38,20 @@ endif
 if 0 | endif
 if !1 | finish | endif
 
-" NeoBundle Scripts-----------------------------
-if &compatible
-    set nocompatible               " Be iMproved
-endif
 
-" Required:
-set runtimepath^=~/.vim/bundle/neobundle.vim/
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+    Plugin 'VundleVim/Vundle.vim'
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+    " Add or remove your Bundles here:
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'mhinz/vim-signify'
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" Add or remove your Bundles here:
-NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'tpope/vim-unimpaired.git'
-NeoBundle 'mhinz/vim-signify'
-
-" syntax highlight
-NeoBundle 'tomasr/molokai'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'ujihisa/unite-colorscheme'
-
-" You can specify revision/branch/tag.
-NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
-
-" Required:
-call neobundle#end()
-
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-" End NeoBundle Scripts-------------------------
-
-set background=dark
-let g:solarized_termcolors = 256
-colorscheme solarized
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 let mapleader = ","
 
@@ -99,9 +68,8 @@ nnoremap <leader>gh SignifyToggleHighlight
 nnoremap <leader>gr SignifyRefresh
 nnoremap <leader>gd SignifyDebug
 
-au BufWinLeave * mkview
-au BufWinEnter * silent loadview
+au BufWinLeave ?* mkview 1
+au BufWinEnter ?* silent loadview 1
 
 nnoremap <leader>n <Esc>:NERDTreeToggle<CR>
-nnoremap <leader>fa <Esc>:call Beautifier()<CR>
 
