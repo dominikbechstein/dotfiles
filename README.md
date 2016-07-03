@@ -5,8 +5,8 @@
 Warning: This will overwrite your local dotfiles!
 
 ```bash
-git clone --no-checkout git@github.com:dominikwinter/dotfiles.git
-cd dotfiles
+git clone --no-checkout git@github.com:dominikwinter/dotfiles.git .dotfiles
+cd .dotfiles
 git config core.worktree ~
 
 git fetch --all
